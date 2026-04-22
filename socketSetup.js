@@ -3,7 +3,7 @@ const { Server } = require("socket.io");
 function setupSocket(httpServer) {
   const io = new Server(httpServer, {
     cors: {
-      origin: "*",
+      origin: process.env.FRONTEND_URL || "https://your-app.vercel.app",
       methods: ["GET", "POST"],
     },
   });
